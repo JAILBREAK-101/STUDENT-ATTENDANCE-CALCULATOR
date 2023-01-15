@@ -1,0 +1,219 @@
+<!-- THIS IS FOR TEST-RUNNING PROCESS. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATTENDANCE CALCULATOR</title>
+    <link rel="stylesheet" href="./CSS/style_for_interface.css">
+</head>
+
+<body background="./images/BACKGROUND1.jpg"
+    style="background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <!-- THIS IS FOR THE WELCOME PAGE. -->
+    <header>
+        <!-- INCLUDE HEADER CONTENTS HERE. -->
+    </header>
+    <aside>
+        <!-- INCLUDE NAVIGATION TO OTHER PROJECTS AND USER INFO HERE.-->
+    </aside>
+    <main class="main-wrapper-for-contents">
+        <h1 style="color: white;">Attendance Calculator</h1>
+
+        <!-- SET OF INSTRUCTIONS. -->
+        <div class="container-for-form">
+            <h2>You are to fill in the form for the student's parameters.</h2>
+            <form class="the-form" action="#">
+                <section class="input-field">
+                    <label for="level">What Level or class are your students?: </label>
+                    <input type="text" class="level-of-students" name="level" id="level">
+                </section>
+
+                <section class="input-field">
+                    <label for="department">What department are your students?: </label>
+                    <input type="text" class="department-of-students" name="department" id="department">
+                </section>
+
+                <section class="generate-courses">
+                    <div class="input-field">
+                        <label for="no-of-courses"> What is the number of courses?: </label>
+                        <div class="button-input">
+                            <input type="number" class="number" name="no-of-courses" id="no-of-courses">
+
+                            <!-- Button for enabling the entering of courses. -->
+                            <button type="submit" class="enable-edit for-courses">
+                                Enter the courses
+                        </div>
+                        </button>
+                    </div>
+                </section>
+
+                <section class="input-field no-of-students">
+                    <label for="no-of-students">How many Students are you registering?</label>
+                    <div class="button-input">
+                        <input type="number" name="no-of-students" id="no-of-students">
+                        <button type="submit" class="enable-edit for-students">
+                            Enter their details
+                        </button>
+                    </div>
+                </section>
+
+                <!-- FORM FILLER INDICATOR. -->
+                <h3 class="form-filler">Fill current form to fill last form.</h3>
+
+                <!-- THE SPACE FOR ENTERING THE COURSES OF THE USER. -->
+            </form>
+        </div>
+
+
+        <!-- AFTER FORM EVENTS FOR EVERYTHING THAT HAPPENS, WHEN WE CLICK A BUTTON -->
+        <!-- FOR THE COURSES -->
+        <dialog class="modal-for-courses modal-for-entering-no-of-courses,and-no-of-lectures for-courses">
+
+            <div id="table" class="student_courses">
+                <!-- DYNAMICALLY GENERATED. -->
+                <!-- THE TEXT THAT WOULD SHOW THE LEVEL OF THE STUDENTS. -->
+                <div class="header-section">
+                    <div class="sub-header-section">
+                        <h2 class="student-level"></h2>
+                        <h3>Enter the courses of the students in the fields below.</h3>
+                        <span class="instruct">Please enter in uppercase.</span>
+                    </div>
+                    <button class="close"><img src="./images/icon-close.svg" alt="icon-close"></button>
+                </div>
+                <table class="container-for-inputs for-courses">
+                    <!-- WHERE THE DATA INPUTS AND THEIR CONTAINERS ARE GOING TO DYNAMICALLY BE. -->
+                    <thead>
+                        <td>Courses Code</td>
+                        <td>No of lectures observed</td>
+                    </thead>
+
+                    <!-- The Main body for data. -->
+                    <tbody>
+                        <!-- <tr>
+                                <td class="Course"></td>
+                                <td class="No of time"></td>
+                            </tr> -->
+                    </tbody>
+                </table>
+                <button class="btn">Done</button>
+            </div>
+
+            <!-- CLOSE CONFIRMATION MODAL. -->
+            <!-- THIS WOULD ONLY OPEN, WHEN THEY CLICK ON THE CLOSE BUTTON. -->
+            <dialog class="confirm-closing confirm-closing-modal">
+                <h3>Are you sure you want to cancel and close all your records?</h3>
+                <div class="answer">
+                    <button class="yes">Yes</button>
+                    <button class="no">No</button>
+                </div>
+            </dialog>
+        </dialog>
+
+
+
+        <!-- FOR THE STUDENTS. -->
+        <dialog class="modal-for-courses for-students">
+            <div id="table" class="student_courses">
+                <!-- DYNAMICALLY GENERATED. -->
+                <!-- THE TEXT THAT WOULD SHOW THE LEVEL OF THE STUDENTS. -->
+                <div class="header-section">
+                    <div class="sub-header-section">
+                        <h2 class="student-level"></h2>
+                        <h3>Enter the Student's Name and Matric Number in the fields below.</h3>
+                        <span class="instruct">Please enter in uppercase.</span>
+                    </div>
+                    <button class="close close-btn-2"><img src="./images/icon-close.svg" alt="icon-close"></button>
+                </div>
+                <!-- THIS TABLE IS FOR THE STUDENT'S DETAILS. -->
+                <table class="container-for-inputs for-students">
+                    <!-- WHERE THE DATA INPUTS AND THEIR CONTAINERS ARE GOING TO DYNAMICALLY BE. -->
+                    <thead>
+                        <td>Student's Name</td>
+                        <td>Student's Matric Number</td>
+                    </thead>
+
+                    <!-- The Main body for data. -->
+                    <tbody>
+                        <!-- Table data should be stored in here based on user's inputs. -->
+                    </tbody>
+                </table>
+                <button class="btn">Done</button>
+            </div>
+
+            <dialog class="confirm-closing confirm-closing-modal">
+                <h3>Are you sure you want to cancel and close all your records?</h3>
+                <div class="answer">
+                    <button class="yes">Yes</button>
+                    <button class="no">No</button>
+                </div>
+            </dialog>
+
+        </dialog>
+
+        <div class="take-another hidden">
+            <div class="header">
+                Do you want to take in another record of students?
+            </div>
+            <!-- Based on Decision, perform some JS action. -->
+            <div class="buttons">
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- FOR THE SAVED RECORDS -->
+        <button class="saved_records">View Saved Records</button>
+
+
+        <!-- TO SHOW THE SAVED RECORDS, WHEN WE CLICK ON THE BUTTON. -->
+        <dialog class="for-storage">
+            <section class="storage-container">
+                <section class="storage-head">
+                    <h3>Saved Records</h3>
+                    <button class="close"><img src="./images/icon-close.svg" alt="close-btn-2"></button>
+                    <button class="clear-all">
+                        Clear all
+                    </button>
+                </section>
+                <ol class="records">
+                    <!-- IN HERE ALL RECORDS WOULD BE STORED, AS USER COMPUTES DATA. -->
+                    <span class="no-records">No records</span>
+                </ol>
+                <div class="record-details">
+                    <i class="instruction">Click on record to view details</i>
+                    <!-- <h4><span class="records-number">0</span> Total records</h4> -->
+                </div>
+            </section>
+        </dialog>
+
+        <div class="overlay-modal"></div>
+
+        <!-- THE ACTUAL RECORDS FOR EACH OF THE ONES WE CLICK ON, IN THE SAVED RECORDS MODAL. -->
+        <dialog class="records-container">
+            <!-- This would contain what we click on. -->
+            <div class="header">
+                <!-- Records header, based on the title of the record -->
+            </div>
+            <div class="record-body">
+                <!-- Where Each of these records would be in. -->
+            </div>
+        </dialog>
+    </main>
+    <footer>
+        <!-- INCLUDE CREDITS, AND LINKS IN HERE -->
+    </footer>
+
+    <!-- NOTHING COMES EASY, WORK FOR IT. -->
+    <!-- FOR THE STORAGE. -->
+    <script src="./Js/real_js_for_storage.js">
+    </script>
+    <!-- THIS INTERFACE'S SCRIPT. -->
+    <script src="./Js/real_js_for_interface.js"></script>
+
+    <!-- <script src="./Js/new_script.js"></script> -->
+</body>
+
+</html>

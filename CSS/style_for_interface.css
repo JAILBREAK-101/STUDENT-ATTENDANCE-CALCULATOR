@@ -1,0 +1,376 @@
+/* BASE STYLES. */
+:root {
+    /* Color Scheme - Mustard, sage, & forest green*/
+    /* colors would be named according to sections. */
+    --main-background: ;
+    --secondary-background: ;
+    --color-1: #DD7F7A;
+    --color-2: #EBE8D6;
+    --color-3: #5C6CB2;
+
+    --supp-color: #fca311;
+    --supp-color-2: #0096c7;
+    --supp-color-3: #e85d04;
+    --supp-color-4: #33658a;
+    --supp-color-5: #d00000;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* THE MAIN WRAPPER */
+.main-wrapper-for-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    min-height: 100%;
+    /* LIMIT THE NUMBER OF TEXT. */
+    /* display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden; */
+}
+
+/* THE LAYOUT FOR THE NUMBER OF COURSES INPUT. */
+
+/* THE MAIN CONTAINER FOR THE WHOLE FORMS. */
+.container-for-form {
+    border: 5px solid var(--supp-color);
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    padding: 1.3em;
+    margin: 0 20px;
+    color: white;
+    margin-bottom: 1.2rem;
+}
+
+
+.container-for-form h2 {
+    max-width: 40ch;
+    text-align: center;
+}
+
+/* The form of inputs. */
+.the-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: .79rem;
+}
+
+/* EACH INPUT FIELD */
+.input-field {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1em;
+}
+
+.input-field label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.01em;
+}
+
+.button-input {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+/* INDICATOR FOR FILLING FORM */
+.form-filler {
+    text-align: center;
+    font-weight: 500;
+}
+
+.input-field input {
+    border: 0;
+    padding: .5em;
+    border-radius: 4px;
+    width: 75%;
+    outline: none;
+}
+
+/* THE BUTTONS FOR CLICKING (interaction) */
+button {
+    border: 0;
+    background: none;
+    padding: .7em;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25);
+    width: 50%;
+    background-color: var(--color-1);
+    transition: .4s translate, .4s background-color, opacity .4s ease-in-out 0.1s;
+}
+
+button:hover {
+    translate: 0 -5px;
+    cursor: pointer;
+    background-color: lightblue;
+    color: white;
+    opacity: .5;
+}
+
+/* BUTTON FOR THE RECORDS. */
+.saved_records {
+    background-color: var(--supp-color-2);
+    color: white;
+    width: 45%;
+    box-shadow: 0 2px 5px 0 var(--supp-color-4);
+}
+
+.saved_records:hover {
+    color: black;
+}
+
+/* PUT THE REMAINING STYLES, WHEN IT IS TIME TO START STYLING. */
+/* THE STYLING OF THE MODAL FOR ENTERING THE COURSES. */
+
+
+/* FOR EVERYTHING THAT HAPPENS AFTER THE FORM. */
+/* DYNAMIC STYLING. */
+.modal-for-courses {
+    background: lightblue;
+    border: 0;
+    border-radius: 5px;
+    padding: .6rem 1.1rem;
+    position: absolute;
+    /* /* left: 50%; */
+    top: 50%;
+    /* translate: -50% -50%;  */
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
+    transition: all .2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#table {
+    display: flex;
+    gap: .2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-for-courses .header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* THE TABLE INSIDE THE MODAL */
+table {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* FOR THE INPUT DATA FOR ENTERING THE NUMBER OF COURSES AND THE COURSES. */
+.container-for-inputs {
+    margin: 0;
+    margin-top: .4em;
+    padding: .6em;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: grid;
+    gap: .5rem;
+    font-size: 2rem;
+    align-items: center;
+}
+
+thead>* {
+    font-size: .55em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+tbody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+tbody tr {
+    display: flex;
+    margin-top: .5rem;
+    gap: .2rem;
+}
+
+/* COMBINATION */
+
+tbody td {
+    border: 1px solid black;
+    background: black;
+    border-radius: 5px;
+    padding: .2em;
+    height: 100%;
+}
+
+.input-for-course,
+.input-for-lecture {
+    height: fit-content;
+    border-radius: 5px;
+    display: flex;
+    padding: .5em;
+    font-weight: 600;
+    outline: none;
+    border: 0;
+}
+
+/* THE CLOSE BUTTON INSIDE THE MODAL */
+button.close {
+    border: 1px solid black;
+    border-radius: 10px;
+    background: black;
+    padding: .5em;
+    cursor: pointer;
+    /* don't mind the red. */
+    transition: 0.2s background;
+}
+
+button.close:hover {
+    background: blue;
+}
+
+button.close:active {
+    background: none;
+}
+
+/* THE DONE BUTTON. */
+button.btn {
+    border: 0;
+    background: blue;
+    padding: .6rem .9rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .1s all .1s opacity;
+    opacity: .5;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+/* THE CLOSING MODAL */
+dialog.confirm-closing-modal {
+    border: 0;
+    border-radius: 20px;
+    /* display: flex; */
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+}
+
+/* MAKE ALL MODALS APPEAR UPON OVERLAY. */
+.modal-for-courses, dialog.confirm-closing-modal, dialog.for-storage {
+    z-index: 10;
+}
+
+/* THE MODAL FOR THE STORAGE. */
+dialog.for-storage {
+    border: 0;
+    border-radius: 5px;
+    background: var(--supp-color-2);
+}
+
+.storage-head,
+.storage-container {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.storage-head h3 {
+    margin: 0;
+}
+
+.storage-container {
+    padding: 1rem;
+    flex-direction: column;
+}
+
+ol.records {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ol li {
+    /* display: flex; */
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* FOR EACH RECORD FIELD (as a whole) */
+ol li,
+p.container-for-list {
+    align-items: center;
+}
+
+/* ALL THE BUTTONS IN THE RECORD */
+.functional-btn {
+    display: flex;
+    gap: .4rem;
+}
+
+.delete-btn,
+.edit-btn,
+.compute-btn {
+    background: none;
+}
+
+/* FOR THE OVERLAY, WHEN WE OPEN THE MODALS*/
+.overlay-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: 200ms ease-in-out linear;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+/* Active class for when the modals are open for overlay. */
+.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.hidden {
+    display: none;
+}

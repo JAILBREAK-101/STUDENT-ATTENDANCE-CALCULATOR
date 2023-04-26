@@ -291,7 +291,9 @@ dialog.confirm-closing-modal {
 }
 
 /* MAKE ALL MODALS APPEAR UPON OVERLAY. */
-.modal-for-courses, dialog.confirm-closing-modal, dialog.for-storage {
+.modal-for-courses,
+dialog.confirm-closing-modal,
+dialog.for-storage {
     z-index: 10;
 }
 

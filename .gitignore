@@ -1,2 +1,10 @@
-# SOME FILES TO IGNORE.
-real_js_for_application.js
+# Refactor and Recreate.
+
+node_modules
+
+## Hide out ignores and start with new dir
+client/ignores
+server/ignores
+
+## Reconfigure Server
+server

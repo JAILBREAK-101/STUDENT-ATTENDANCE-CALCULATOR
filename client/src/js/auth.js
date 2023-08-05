@@ -1,136 +1,77 @@
-/* Authentication Script file */
-import { applicationView } from "./script.js";
+const signUp = document.querySelector(".sign-up");
+const login = document.querySelector(".login");
 
-const loginPage = `
-    <div class = "auth">
+const loginForm = document.querySelector(".login form");
+const signUpForm = document.querySelector(".sign-up form");
 
-        <section class="auth--header">
+const signUpLink = document.querySelector(".auth-signup");
+const loginLink = document.querySelector(".auth-login");
 
-            <h2 class="auth--header-text">Login</h2>
-            <p class="auth--info-text">Enter your credentials to continue to the attendance calculator. </p>
-        
-        </section>
+const loginErrorMessages = document.querySelectorAll(".login .form-error");
+const signUpErrorMessages = document.querySelectorAll(".sign-up .form-error");
 
-        <section class = "">
+const emailFormat =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/g;
+const passwordMinLength = 8;
+const passwordMaxLength = 30;
 
-            <form class="" action="#" method="post">
-                <fieldset class = "form-field">
-                    <legend><label class="form-label" for = "email" >Email</label></legend>
-                    <input class="form-input email" type="text" id="email" name="email" placeholder="Type in your Email Address" />
-                </fieldset>
-                <span class="form-error"></span>
-
-                <fieldset class = "">
-                    <legend><label class="form-label" for="password" >Password</label></legend>
-                    <input class="form-input password" type="text" id="password" name="password" placeholder="Type in your Password" />
-                </fieldset>
-                <span class="form-error"></span>
-
-                <div><a href="#" class="auth-link">Forgot Password?</a>
-
-                <div class="button-container"> 
-                    <input type="submit" class = "auth-button log-in" value="Login" />
-                </div>
-
-                <div>Don't have an account?<button class="auth-link auth-signup">Sign Up</button></div>
-            </form>
-            
-        </section>
-
-    </div>
-`;
-
-const signUpPage = `
-    <div class = "auth">
-        
-        <section class="auth--header">
-    
-            <h2 class="auth--header-text">Sign Up</h2>
-            <p class="auth--info-text">Enter your credentials to get started with the attendance calculator. </p>
-        
-        </section>
-    
-        <section class = "">
-        
-            <form class="" action="#" method="post">
-                <fieldset class = "form-field">
-                    <legend><label class="form-label" for="fullname" >Fullname</label></legend>
-                    <input class="form-input fullname" type="text" id="fullname" name="fullname" placeholder="" />
-                </fieldset>
-                <span class="form-error"></span>
-
-                <fieldset class = "">
-                    <legend><label class="form-label" for="email" >Email</label></legend>
-                    <input class="form-input email" type="text" id="email" name="email" placeholder="" />
-                </fieldset>
-                <span class="form-error"></span>
-
-                <fieldset class = "">
-                    <legend><label class="form-label" for = "password" >Password</label></legend>
-                    <input class="form-input password" type="text" id="password" name="password" placeholder="" />
-                </fieldset>
-                <span class="form-error"></span>
-
-                <label for="tac" class=""><input type="checkbox" id="tac" value="agree" name="tac" class="" />Do you agree to our terms and conditions?</label>
-        
-                <div class="button-container"> 
-                    <input type="submit" class = "auth-button sign-up" value="Sign Up" />
-                </div>
-
-                <div>Have an account?<button class="auth-link auth-login">Login</button></div>   
-            </form>
-            
-        </section>
-    
-    </div>
-`;
-
-/* Utils, Variables, Objects and style classes ===== */
-let displayValue = "block";
-
-const pageDisplayClass = {
-  display: displayValue === "block" ? displayValue === "none" : null,
-};
-
-/* Rendering and View ===== */
-const displayAuthPage = () => {
-  applicationView.innerHTML = loginPage;
-
-  /* many of the methods should continue from here ===== */
-
-  const signUpButton = document.querySelector(".sign-up");
-  const logInButton = document.querySelector(".log-in");
-  const signUpLink = document.querySelector(".auth-signup");
-  const loginLink = document.querySelector(".auth-login");
-
-  signUpLink.addEventListener("click", () => {
-    e.preventDefault();
-    determineAuthPageChange;
-  });
-};
-
-// logInButton.addEventListener("click", alert("WORKING"));
-
-const determineAuthPageChange = () => {
-  if ((loginPage.style.display = "block")) {
-    loginPage.style.display = "none";
-    signUpPage.style.disply = "block";
-  } else return;
-};
-
-/* Actions and functions =====*/
-const validateInputField = (...inputFields) => {
-  const errorMessages = [`${$inputFields} is required`];
-
-  if (!inputFields.value) {
+const switchPages = (currentPage, displayPage) => {
+  if (currentPage.style.display !== "none") {
+    displayPage.style.display = "block";
+    currentPage.style.display = "none";
   }
 };
 
-const loginUser = () => {};
+loginLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  switchPages(signUp, login);
+});
 
-const signUpUser = () => {};
+signUpLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  switchPages(login, signUp);
+});
 
-/* condition to determine which page is on and buttons to work */
+onload = signUp.style.display = "none";
 
-/* On page load */
-onload = displayAuthPage();
+/* form validation and submission */
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const emailValue = document.querySelector(".login .email");
+  const passwordValue = document.querySelector(".login .password");
+  let errorMessages = [];
+
+  if (emailValue.value === "" || emailValue.value == null) {
+    errorMessages.push("Email is required");
+    loginErrorMessages[0].innerHTML = errorMessages[0];
+  }
+
+  if (!emailValue.value.match(emailFormat)) {
+    errorMessages.push("Incorrect email format");
+    loginErrorMessages[0].innerHTML = errorMessages[1];
+  }
+
+  if (passwordValue.value === "" || passwordValue.value == null) {
+    errorMessages.push("Password is required");
+    loginErrorMessages[1].innerHTML = errorMessages[2];
+  }
+
+  if (passwordValue.value < 8) {
+    errorMessages.push("Password length should be greater than 8 characters");
+    loginErrorMessages[1].innerHTML = errorMessages[3];
+  } else if (passwordValue.value > 30) {
+    errorMessages.push(
+      "Password length should not be greater than 30 characters"
+    );
+    loginErrorMessages[1].innerHTML = errorMessages[4];
+  } else {
+    loginErrorMessages.forEach((errorMessage) => (errorMessage.innerText = ""));
+    console.log(passwordValue.value, emailValue.value);
+  }
+
+  //   backend
+});
+
+signUpForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});

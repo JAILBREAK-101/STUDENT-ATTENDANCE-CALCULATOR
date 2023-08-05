@@ -1,4 +1,12 @@
 /* Things like Navigation, splash screen and scroll bar logic would be inside here =====*/
-const applicationView = document.getElementById("view");
+const appName = "Student Attendance Calculator";
 
-export { applicationView };
+const origin = location.origin;
+
+const loadDefaultPage = () => {
+  location.href = `${origin}/client/src/html-pages/auth.html`;
+};
+
+loadDefaultPage();
+
+export { appName };

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Attendance Calculator | Authentication</title>
+    <!-- <link rel="stylesheet" href="./public/build/statics/css/style.css" /> -->
+    <link rel="stylesheet" href="../styles/index.css" />
+</head>
+
+<body>
+    <div class="auth">
+        <h1>Student Attendance Calculator</h1>
+        <div class="login">
+            <section class="auth--header">
+
+                <h2 class="auth--header-text text-3xl caret-lime-400 font-bold underline">Login</h2>
+                <p class="auth--info-text">Enter your credentials to continue to the attendance calculator. </p>
+
+            </section>
+
+            <section class="">
+
+                <form class="form" action="#" method="post">
+                    <fieldset class="form-field">
+                        <legend><label class="form-label" for="email">Email</label></legend>
+                        <input class="form-input email" type="text" id="email" name="email"
+                            placeholder="Type in your Email Address" />
+                        <span class="form-error"></span>
+                    </fieldset>
+
+                    <fieldset class="">
+                        <legend><label class="form-label" for="password">Password</label></legend>
+                        <input class="form-input password" type="text" id="password" name="password"
+                            placeholder="Type in your Password" />
+                        <span class="form-error"></span>
+                    </fieldset>
+
+                    <div><a href="#" class="auth-link">Forgot Password?</a>
+
+                        <div class="button-container">
+                            <input type="submit" class="auth-button log-in" value="Login" />
+                        </div>
+
+                        <div>Don't have an account?<a class="auth-link auth-signup">Sign Up</a></div>
+                </form>
+
+            </section>
+        </div>
+
+        <div class="sign-up">
+
+            <section class="auth--header">
+
+                <h2 class="auth--header-text">Sign Up</h2>
+                <p class="auth--info-text">Enter your credentials to get started with the attendance calculator. </p>
+
+            </section>
+
+            <section class="">
+
+                <form class="form" action="#" method="post">
+                    <fieldset class="form-field">
+                        <legend><label class="form-label" for="fullname">Fullname</label></legend>
+                        <input class="form-input fullname" type="text" id="fullname" name="fullname" placeholder="" />
+                        <span class="form-error"></span>
+                    </fieldset>
+
+                    <fieldset class="">
+                        <legend><label class="form-label" for="email">Email</label></legend>
+                        <input class="form-input email" type="text" id="email" name="email" placeholder="" />
+                        <span class="form-error"></span>
+                    </fieldset>
+
+                    <fieldset class="">
+                        <legend><label class="form-label" for="password">Password</label></legend>
+                        <input class="form-input password" type="text" id="password" name="password" placeholder="" />
+                        <span class="form-error"></span>
+                    </fieldset>
+
+                    <label for="tac" class=""><input type="checkbox" id="tac" value="agree" name="tac" class="" />Do you
+                        agree to our terms and conditions?</label>
+
+                    <div class="button-container">
+                        <input type="submit" class="auth-button sign-up" value="Sign Up" />
+                    </div>
+
+                    <div>Have an account?<a class="auth-link auth-login cursor-pointer">Login</a></div>
+                </form>
+
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Frontend Script -->
+    <script src="../js/auth.js" type="module"></script>
+
+    <!-- Backend Script -->
+</body>
+
+</html>

@@ -74,4 +74,6 @@ loginForm.addEventListener("submit", (e) => {
 
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  location.href = `${location.origin}/client/src/html-pages/app.html`;
 });

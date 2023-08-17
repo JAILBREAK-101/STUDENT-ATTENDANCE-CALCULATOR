@@ -1,0 +1,87 @@
+:root {
+    /* Colors */
+    --primary-color: ;
+    --primary-color-faint: ;
+    --primary-color-faint-2: ;
+    --primary-color-deep: ;
+    --primary-color-very-deep: ;
+    --primary-color-disabled: ;
+    --primary-color-hover: ;
+    --primary-color-active: ;
+    --primary-color-visited: ;
+
+    --secondary-color: ;
+    --secondary-color-faint: ;
+    --secondary-color-hover: ;
+    --secondary-color-disabled: ;
+    --secondary-color-active: ;
+    --secondary-color-deep: ;
+
+    --danger: ;
+    --danger-hover: ;
+    --danger-disabled: ;
+    --danger-active: ;
+
+    --success: ;
+    --success-hover: ;
+    --success-disabled: ;
+    --success-active: ;
+
+    --dark: ;
+    --white: ;
+    --black: ;
+    --gray: ;
+
+    /* Responsiveness breakpoints */
+    --width-small: 600px;
+    --width-medium: 1100px;
+    --width-large: 1400px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: sans-serif;
+    /* get a working font */
+    font-size: 15px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-color);
+    height: 100vh;
+    min-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+fieldset {
+    text-decoration: none;
+    border: 0;
+    outline: none;
+    background-color: none;
+}

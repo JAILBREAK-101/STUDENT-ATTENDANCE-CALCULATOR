@@ -1,0 +1,6 @@
+.auth {
+    background-color: var(--primary-color);
+    color: black;
+    display: flex;
+    
+}

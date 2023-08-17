@@ -9,4 +9,4 @@ const loadDefaultPage = () => {
 
 loadDefaultPage();
 
-export { appName };
+export { appName, origin };

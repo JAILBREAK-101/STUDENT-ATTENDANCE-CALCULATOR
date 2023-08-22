@@ -1,10 +1,5 @@
-# Refactor and Recreate.
-
 node_modules
 
-## Hide out ignores and start with new dir
 client/ignores
-server/ignores
 
-## Reconfigure Server
 server
